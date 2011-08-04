@@ -28,12 +28,11 @@
 
 - (UITableViewCell *)getCell:(UITableView *)view style:(UITableViewCellStyle)style
 {
-	static NSString *_cellIdentifier = @"Cell"; // TODO: use class name here of something
-	
-	UITableViewCell *cell = [view dequeueReusableCellWithIdentifier:_cellIdentifier];
+	NSString *cellIdentifier = NSStringFromClass(self.class);
+	UITableViewCell *cell = [view dequeueReusableCellWithIdentifier:cellIdentifier];
 	if (cell == nil)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:style reuseIdentifier:_cellIdentifier] autorelease];
+		cell = [[[UITableViewCell alloc] initWithStyle:style reuseIdentifier:cellIdentifier] autorelease];
 	}
 
 	cell.textLabel.text = self.caption;
