@@ -20,6 +20,8 @@
 	UITableViewCell *cell = [super getCell:view];
 	if (cell)
 	{
+		cell.selectionStyle = UITableViewCellSelectionStyleNone;
+	
 		UISwitch *button = [[UISwitch new] autorelease];
 		button.on = self.value;
 		[button addTarget:self action:@selector(onSwitchToggled:) forControlEvents:UIControlEventValueChanged];
