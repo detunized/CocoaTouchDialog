@@ -24,6 +24,9 @@
 		60D196F613EB3AAC002954E7 /* CTDStringElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D196E513EB3AAC002954E7 /* CTDStringElement.m */; };
 		60D196F713EB3AAC002954E7 /* CTDViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D196E613EB3AAC002954E7 /* CTDViewController.h */; };
 		60D196F813EB3AAC002954E7 /* CTDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D196E713EB3AAC002954E7 /* CTDViewController.m */; };
+		60D1994613EC3A7F002954E7 /* CTDScreenLinkElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D1993313EC3A7F002954E7 /* CTDScreenLinkElement.h */; };
+		60D1994713EC3A7F002954E7 /* CTDScreenLinkElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 60D1993413EC3A7F002954E7 /* CTDScreenLinkElement.m */; };
+		60D1997313EC4EAC002954E7 /* CTDMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 60D1997213EC4EAC002954E7 /* CTDMacros.h */; };
 		AA747D9F0F9514B9006C5449 /* CocoaTouchDialog_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* CocoaTouchDialog_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -46,6 +49,9 @@
 		60D196E513EB3AAC002954E7 /* CTDStringElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDStringElement.m; sourceTree = "<group>"; };
 		60D196E613EB3AAC002954E7 /* CTDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDViewController.h; sourceTree = "<group>"; };
 		60D196E713EB3AAC002954E7 /* CTDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDViewController.m; sourceTree = "<group>"; };
+		60D1993313EC3A7F002954E7 /* CTDScreenLinkElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDScreenLinkElement.h; sourceTree = "<group>"; };
+		60D1993413EC3A7F002954E7 /* CTDScreenLinkElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTDScreenLinkElement.m; sourceTree = "<group>"; };
+		60D1997213EC4EAC002954E7 /* CTDMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTDMacros.h; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* CocoaTouchDialog_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CocoaTouchDialog_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libCocoaTouchDialog.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libCocoaTouchDialog.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,8 +108,11 @@
 				60D196DD13EB3AAC002954E7 /* CTDEntryElement.m */,
 				60D196DE13EB3AAC002954E7 /* CTDFloatElement.h */,
 				60D196DF13EB3AAC002954E7 /* CTDFloatElement.m */,
+				60D1997213EC4EAC002954E7 /* CTDMacros.h */,
 				60D196E013EB3AAC002954E7 /* CTDRootElement.h */,
 				60D196E113EB3AAC002954E7 /* CTDRootElement.m */,
+				60D1993313EC3A7F002954E7 /* CTDScreenLinkElement.h */,
+				60D1993413EC3A7F002954E7 /* CTDScreenLinkElement.m */,
 				60D196E213EB3AAC002954E7 /* CTDSection.h */,
 				60D196E313EB3AAC002954E7 /* CTDSection.m */,
 				60D196E413EB3AAC002954E7 /* CTDStringElement.h */,
@@ -139,6 +148,8 @@
 				60D196F313EB3AAC002954E7 /* CTDSection.h in Headers */,
 				60D196F513EB3AAC002954E7 /* CTDStringElement.h in Headers */,
 				60D196F713EB3AAC002954E7 /* CTDViewController.h in Headers */,
+				60D1994613EC3A7F002954E7 /* CTDScreenLinkElement.h in Headers */,
+				60D1997313EC4EAC002954E7 /* CTDMacros.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +211,7 @@
 				60D196F413EB3AAC002954E7 /* CTDSection.m in Sources */,
 				60D196F613EB3AAC002954E7 /* CTDStringElement.m in Sources */,
 				60D196F813EB3AAC002954E7 /* CTDViewController.m in Sources */,
+				60D1994713EC3A7F002954E7 /* CTDScreenLinkElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +232,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CocoaTouchDialog_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
+				);
 				PRODUCT_NAME = CocoaTouchDialog;
 			};
 			name = Debug;
@@ -234,6 +251,11 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = CocoaTouchDialog_Prefix.pch;
 				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/build/Debug-iphonesimulator\"",
+					"\"$(SRCROOT)/build/Release-iphonesimulator\"",
+				);
 				PRODUCT_NAME = CocoaTouchDialog;
 			};
 			name = Release;
