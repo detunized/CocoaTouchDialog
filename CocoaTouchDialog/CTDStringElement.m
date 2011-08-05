@@ -4,6 +4,11 @@
 
 @synthesize value = _value;
 
++ (CTDStringElement *)elementWithCaption:(NSString *)caption stringValue:(NSString *)value
+{
+	return [[[CTDStringElement alloc] initWithCaption:caption stringValue:value] autorelease];
+}
+
 - (id)initWithCaption:(NSString *)caption stringValue:(NSString *)value;
 {
 	self = [super initWithCaption:caption];

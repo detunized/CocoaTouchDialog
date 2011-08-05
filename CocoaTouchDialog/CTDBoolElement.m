@@ -4,6 +4,11 @@
 
 @synthesize value = _value;
 
++ (CTDBoolElement *)elementWithCaption:(NSString *)caption boolValue:(BOOL)value
+{
+	return [[[CTDBoolElement alloc] initWithCaption:caption boolValue:value] autorelease];
+}
+
 - (id)initWithCaption:(NSString *)caption boolValue:(BOOL)value;
 {
 	self = [super initWithCaption:caption];
