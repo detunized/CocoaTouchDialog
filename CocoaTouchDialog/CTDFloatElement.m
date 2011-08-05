@@ -15,6 +15,11 @@
 	return self;
 }
 
+- (void)dealloc
+{
+	[super dealloc];
+}
+
 - (UITableViewCell *)getCell:(UITableView *)view
 {
 	UITableViewCell *cell = [super getCell:view];

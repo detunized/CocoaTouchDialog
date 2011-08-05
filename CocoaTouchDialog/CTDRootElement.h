@@ -1,18 +1,21 @@
 #import "CTDSection.h"
 
+@class CTDViewController;
+
 @interface CTDRootElement: CTDElement
 {
-	
-@protected
-	NSMutableArray *sections;
+@private
+	NSMutableArray *sections_;
 }
+
+@property(nonatomic, retain) CTDViewController *viewController;
 
 - (id)init;
 - (id)initWithSections:(CTDSection *)firstSection, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)dealloc;
 
 - (void)add:(CTDSection *)section;
-- (int)count;
-- (CTDSection *)getAtIndex:(int)index;
+- (size_t)count;
+- (CTDSection *)getAtIndex:(size_t)index;
 
 @end

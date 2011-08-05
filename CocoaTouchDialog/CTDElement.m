@@ -1,9 +1,10 @@
 #import "CTDElement.h"
+#import "CTDRootElement.h"
 
 @implementation CTDElement
 
-@synthesize parent = _parent;
-@synthesize caption = _caption;
+@synthesize section = section_;
+@synthesize caption = caption_;
 
 - (id)initWithCaption:(NSString *)caption
 {
@@ -12,13 +13,29 @@
 	{
 		self.caption = caption;
 	}
-	
+
 	return self;
 }
 
 - (void)dealloc
 {
+	self.section = nil;
+	self.caption = nil;
+
 	[super dealloc];
+}
+
+- (CTDRootElement *)root
+{
+	if (self.section)
+	{
+		return [self.section root];
+	}
+	else
+	{
+		assert([self isKindOfClass:[CTDRootElement class]]);
+		return (CTDRootElement *)self;
+	}
 }
 
 - (UITableViewCell *)getCell:(UITableView *)view
@@ -38,6 +55,10 @@
 	cell.textLabel.text = self.caption;
 	
 	return cell;
+}
+
+- (void)didSelect
+{
 }
 
 @end

@@ -1,12 +1,13 @@
 #import "CTDElement.h"
 
+@class CTDRootElement;
+
 @interface CTDSection: NSObject
 {
-	NSString *_header;
-	NSString *_footer;
-	NSMutableArray *elements;
+	NSMutableArray *elements_;
 }
 
+@property(nonatomic, retain) CTDRootElement *root;
 @property(nonatomic, copy) NSString *header;
 @property(nonatomic, copy) NSString *footer;
 
@@ -17,7 +18,7 @@
 - (void)dealloc;
 
 - (void)add:(CTDElement *)element;
-- (int)count;
-- (CTDElement *)getAtIndex:(int)index;
+- (size_t)count;
+- (CTDElement *)getAtIndex:(size_t)index;
 
 @end

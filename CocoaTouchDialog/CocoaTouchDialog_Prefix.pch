@@ -4,4 +4,6 @@
 #import <UIKit/UIKit.h>
 #import <CoreGraphics/CoreGraphics.h>
 
+#import <objc/runtime.h>
+
 #endif

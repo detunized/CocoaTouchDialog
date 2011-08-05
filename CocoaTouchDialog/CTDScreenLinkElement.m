@@ -1,4 +1,6 @@
 #import "CTDScreenLinkElement.h"
+#import "CTDRootElement.h"
+#import "CTDViewController.h"
 
 @implementation CTDScreenLinkElement
 
@@ -9,9 +11,10 @@
 
 - (id)initWithCaption:(NSString *)caption block:(CreateScreenBlock)block
 {
-	if (self = [super initWithCaption:caption])
+	self = [super initWithCaption:caption];
+	if (self)
 	{
-		_createScreen = [block copy];
+		createScreen_ = [block copy];
 	}
 
 	return self;
@@ -19,7 +22,7 @@
 
 - (void)dealloc
 {
-	[_createScreen release];
+	[createScreen_ release];
 	
 	[super dealloc];
 }
@@ -33,6 +36,15 @@
 	}
 
 	return cell;
+}
+
+- (void)didSelect
+{
+	UIViewController *screen = createScreen_();
+	if (screen)
+	{
+		[[self root].viewController.navigationController pushViewController:screen animated:YES];
+	}
 }
 
 @end

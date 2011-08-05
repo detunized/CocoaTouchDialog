@@ -1,19 +1,18 @@
 #import "CTDSection.h"
+#import "CTDRootElement.h"
 
 @implementation CTDSection
 
-@synthesize header = _header;
-@synthesize footer = _footer;
+@synthesize root = root_;
+@synthesize header = header_;
+@synthesize footer = footer_;
 
 - (id)init
 {
 	self = [super init];
 	if (self)
 	{
-		self.header = nil;
-		self.footer = nil;
-		
-		elements = [NSMutableArray new];
+		elements_ = [[NSMutableArray alloc] init];
 	}
 
 	return self;
@@ -80,23 +79,30 @@
 
 - (void)dealloc
 {
-	[elements release];
+	[elements_ release];
+	
+	self.root = nil;
+	self.header = nil;
+	self.footer = nil;
+	
 	[super dealloc];
 }
 
 - (void)add:(CTDElement *)element
 {
-	[elements addObject:element]; 
+	[elements_ addObject:element];
+	element.section = self;
 }
 
-- (int)count
+- (size_t)count
 {
-	return [elements count];
+	return [elements_ count];
 }
 
-- (CTDElement *)getAtIndex:(int)index
+- (CTDElement *)getAtIndex:(size_t)index
 {
-	return (CTDElement *)[elements objectAtIndex:index];
+	assert(index < [self count]);
+	return (CTDElement *)[elements_ objectAtIndex:index];
 }
 
 @end

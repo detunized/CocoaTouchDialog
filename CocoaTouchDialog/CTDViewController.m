@@ -2,11 +2,16 @@
 
 @implementation CTDViewController
 
-@synthesize root = _root;
+@synthesize root = root_;
 
 - (id)init
 {
-	return [super initWithStyle:UITableViewStyleGrouped];
+	self = [super initWithStyle:UITableViewStyleGrouped];
+	if (self)
+	{
+	}
+	
+	return self;
 }
 
 - (id)initWithRoot:(CTDRootElement *)root
@@ -15,19 +20,44 @@
 	if (self)
 	{
 		self.root = root;
+		root.viewController = self;
 	}
 	
 	return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder root:(CTDRootElement *)root
+{
+	self = [super initWithCoder:decoder];
+	if (self)
+	{
+		// TODO: Super hack!  Find a better solution!
+		// This is needed because in some case we need to call initWithCoder, not a regular init.
+		// In those cases there's no way to set the style and other then hacking it in this way.
+		UITableViewStyle style = UITableViewStyleGrouped;
+		object_setInstanceVariable(self, "_tableViewStyle", *(UITableViewStyle **)&style);
+
+		self.root = root;
+		root.viewController = self;
+	}
+
+	return self;
+}
+
 - (void)dealloc
 {
+	if (self.root)
+	{
+		self.root.viewController = nil;
+		self.root = nil;
+	}
+
 	[super dealloc];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return self.root.count;
+	return [self.root count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -50,9 +80,9 @@
 	return [[[self.root getAtIndex:indexPath.section] getAtIndex:indexPath.row] getCell:tableView];
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//	return tableView.rowHeight;
-//}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	[[[self.root getAtIndex:indexPath.section] getAtIndex:indexPath.row] didSelect];
+}
 
 @end

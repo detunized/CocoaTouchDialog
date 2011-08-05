@@ -2,12 +2,14 @@
 
 @implementation CTDRootElement
 
+@synthesize viewController = viewController_;
+
 - (id)init
 {
 	self = [super init];
 	if (self)
 	{
-		sections = [NSMutableArray new];
+		sections_ = [[NSMutableArray alloc] init];
 	}
 
 	return self;
@@ -20,7 +22,7 @@
 	{
 		va_list arguments;
 		va_start(arguments, firstSection);
-		
+
 		for (CTDSection *i = firstSection; i; i = va_arg(arguments, CTDSection *))
 		{
 			[self add:i];
@@ -34,23 +36,28 @@
 
 - (void)dealloc
 {
-	[sections release];
+	[sections_ release];
+
+	self.viewController = nil;
+
 	[super dealloc];
 }
 
 - (void)add:(CTDSection *)section
 {
-	[sections addObject:section]; 
+	[sections_ addObject:section];
+	section.root = self;
 }
 
-- (int)count
+- (size_t)count
 {
-	return [sections count];
+	return [sections_ count];
 }
 
-- (CTDSection *)getAtIndex:(int)index
+- (CTDSection *)getAtIndex:(size_t)index
 {
-	return (CTDSection *)[sections objectAtIndex:index];
+	assert(index < [self count]);
+	return (CTDSection *)[sections_ objectAtIndex:index];
 }
 
 @end

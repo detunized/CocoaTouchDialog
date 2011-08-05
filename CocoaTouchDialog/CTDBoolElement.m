@@ -2,7 +2,7 @@
 
 @implementation CTDBoolElement
 
-@synthesize value = _value;
+@synthesize value = value_;
 
 + (CTDBoolElement *)elementWithCaption:(NSString *)caption boolValue:(BOOL)value
 {
@@ -18,6 +18,11 @@
 	}
 	
 	return self;
+}
+
+- (void)dealloc
+{
+	[super dealloc];
 }
 
 - (UITableViewCell *)getCell:(UITableView *)view
@@ -38,7 +43,8 @@
 
 - (void)onSwitchToggled:(id)sender
 {
-	self.value = ((UISwitch *)sender).on;
+	assert([sender respondsToSelector:@selector(isOn)]);
+	self.value = [sender isOn];
 }
 
 @end

@@ -2,7 +2,7 @@
 
 @implementation CTDEntryElement
 
-@synthesize value = _value;
+@synthesize value = value_;
 
 - (id)initWithCaption:(NSString *)caption stringValue:(NSString *)value;
 {
@@ -13,6 +13,13 @@
 	}
 	
 	return self;
+}
+
+- (void)dealloc
+{
+	self.value = nil;
+	
+	[super dealloc];
 }
 
 - (UITableViewCell *)getCell:(UITableView *)view

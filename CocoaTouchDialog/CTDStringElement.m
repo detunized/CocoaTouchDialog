@@ -2,7 +2,7 @@
 
 @implementation CTDStringElement
 
-@synthesize value = _value;
+@synthesize value = value_;
 
 + (CTDStringElement *)elementWithCaption:(NSString *)caption stringValue:(NSString *)value
 {
@@ -16,8 +16,15 @@
 	{
 		self.value = value;
 	}
-	
+
 	return self;
+}
+
+- (void)dealloc
+{
+	self.value = nil;
+
+	[super dealloc];
 }
 
 - (UITableViewCell *)getCell:(UITableView *)view

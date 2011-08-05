@@ -4,11 +4,13 @@ typedef UIViewController *(^ CreateScreenBlock)();
 
 @interface CTDScreenLinkElement: CTDElement
 {
-	CreateScreenBlock _createScreen;
+@private
+	CreateScreenBlock createScreen_;
 }
 
 + (CTDScreenLinkElement *)elementWithCaption:(NSString *)caption block:(CreateScreenBlock)block;
 
 - (id)initWithCaption:(NSString *)caption block:(CreateScreenBlock)block;
+- (void)dealloc;
 
 @end
