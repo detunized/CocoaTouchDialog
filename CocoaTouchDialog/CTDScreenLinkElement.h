@@ -1,6 +1,6 @@
 #import "CTDElement.h"
 
-typedef UIViewController *(^ CreateScreenBlock)();
+typedef UIViewController *(^CreateScreenBlock)();
 
 @interface CTDScreenLinkElement: CTDElement
 {
