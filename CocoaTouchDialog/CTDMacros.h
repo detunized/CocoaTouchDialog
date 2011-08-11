@@ -18,10 +18,10 @@
 
 #define CTD_SCREENLINK_CLASS_NONIB(caption, class) \
 	CTD_SCREENLINK_BLOCK((caption), ^{ \
-		return [[[class alloc] init] autorelease]; \
+		return (UIViewController *)[[[class alloc] init] autorelease]; \
 	})
 
 #define CTD_SCREENLINK_CLASS_NIB(caption, class, nib) \
 	CTD_SCREENLINK_BLOCK((caption), ^{ \
-		return [[[class alloc] initWithNibName:(nib) bundle:nil] autorelease]; \
+		return (UIViewController *)[[[class alloc] initWithNibName:(nib) bundle:nil] autorelease]; \
 	})
