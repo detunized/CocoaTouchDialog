@@ -10,5 +10,18 @@
 #define CTD_STRING(caption, value) \
 	([CTDStringElement elementWithCaption:(caption) stringValue:(value)])
 
-#define CTD_SCREENLINK(caption, create_screen_block) \
+#define CTD_SCREENLINK_BLOCK(caption, create_screen_block) \
 	([CTDScreenLinkElement elementWithCaption:(caption) block:(create_screen_block)])
+
+#define CTD_SCREENLINK_CLASS(caption, class) \
+	CTD_SCREENLINK_CLASS_NIB((caption), class, @#class)
+
+#define CTD_SCREENLINK_CLASS_NONIB(caption, class) \
+	CTD_SCREENLINK_BLOCK((caption), ^{ \
+		return [[[class alloc] init] autorelease]; \
+	})
+
+#define CTD_SCREENLINK_CLASS_NIB(caption, class, nib) \
+	CTD_SCREENLINK_BLOCK((caption), ^{ \
+		return [[[class alloc] initWithNibName:(nib) bundle:nil] autorelease]; \
+	})
