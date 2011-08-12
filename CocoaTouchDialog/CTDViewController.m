@@ -19,8 +19,7 @@
 	self = [self init];
 	if (self)
 	{
-		self.root = root;
-		root.viewController = self;
+		[self setRoot:root];
 	}
 	
 	return self;
@@ -37,8 +36,7 @@
 		UITableViewStyle style = UITableViewStyleGrouped;
 		object_setInstanceVariable(self, "_tableViewStyle", *(UITableViewStyle **)&style);
 
-		self.root = root;
-		root.viewController = self;
+		[self setRoot:root];
 	}
 
 	return self;
@@ -53,6 +51,12 @@
 	}
 
 	[super dealloc];
+}
+
+- (void)setRoot:(CTDRootElement *)root
+{
+	root_ = [root retain];
+	root.viewController = self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
