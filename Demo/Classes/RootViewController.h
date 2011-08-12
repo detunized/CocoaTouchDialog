@@ -1,0 +1,5 @@
+@interface RootViewController: CTDViewController
+{
+}
+
+@end
