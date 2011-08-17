@@ -5,7 +5,7 @@
 
 + (CTDRootElement *)createElements
 {
-	return CTD_ROOT(
+	return CTD_ROOT(@"Demo",
 		CTD_SECTION(@"Bool", nil, 
 			CTD_BOOL(@"Airplane Mode", NO)
 		),
@@ -33,7 +33,6 @@
 	self = [super initWithCoder:decoder root:[RootViewController createElements]];
 	if (self)
 	{
-		self.title = @"Demo";
 	}
 
 	return self;

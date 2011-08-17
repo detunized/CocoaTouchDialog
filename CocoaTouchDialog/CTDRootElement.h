@@ -11,7 +11,7 @@
 @property(nonatomic, retain) CTDViewController *viewController;
 
 - (id)init;
-- (id)initWithSections:(CTDSection *)firstSection, ... NS_REQUIRES_NIL_TERMINATION;
+- (id)initWithCaption:(NSString *)caption sections:(CTDSection *)firstSection, ... NS_REQUIRES_NIL_TERMINATION;
 - (void)dealloc;
 
 - (void)add:(CTDSection *)section;

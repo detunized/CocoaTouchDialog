@@ -15,11 +15,13 @@
 	return self;
 }
 
-- (id)initWithSections:(CTDSection *)firstSection, ...
+- (id)initWithCaption:(NSString *)caption sections:(CTDSection *)firstSection, ...
 {
-	self = [self init];
+	self = [super initWithCaption:caption];
 	if (self)
 	{
+		sections_ = [[NSMutableArray alloc] init];
+
 		va_list arguments;
 		va_start(arguments, firstSection);
 

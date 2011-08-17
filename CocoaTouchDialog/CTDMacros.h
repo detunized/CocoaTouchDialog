@@ -1,5 +1,5 @@
-#define CTD_ROOT(...) \
-	[[[CTDRootElement alloc] initWithSections:__VA_ARGS__, nil] autorelease]
+#define CTD_ROOT(caption, ...) \
+	[[[CTDRootElement alloc] initWithCaption:(caption) sections:__VA_ARGS__, nil] autorelease]
 
 #define CTD_SECTION(header_text, footer_text, ...) \
 	[[[CTDSection alloc] initWithHeader:(header_text) footer:(footer_text) elements:__VA_ARGS__, nil] autorelease]

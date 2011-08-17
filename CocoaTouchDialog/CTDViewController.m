@@ -57,6 +57,8 @@
 {
 	root_ = [root retain];
 	root.viewController = self;
+	
+	self.title = root.caption;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
