@@ -1,4 +1,5 @@
 #import "CTDRootElement.h"
+#import "CTDViewController.h"
 
 @implementation CTDRootElement
 
@@ -60,6 +61,27 @@
 {
 	assert(index < [self count]);
 	return (CTDSection *)[sections_ objectAtIndex:index];
+}
+
+- (UITableViewCell *)getCell:(UITableView *)view
+{
+	UITableViewCell *cell = [super getCell:view style:UITableViewCellStyleValue1];
+	if (cell)
+	{
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+	}
+
+	return cell;
+}
+
+- (void)didSelect
+{
+	// TODO: Make this a function in CTDElement
+	CTDViewController *screen = [[CTDViewController alloc] initWithRoot:self];
+	if (screen)
+	{
+		[[self root].viewController.navigationController pushViewController:screen animated:YES];
+	}
 }
 
 @end

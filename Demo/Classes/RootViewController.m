@@ -10,6 +10,19 @@
 			CTD_BOOL(@"Airplane Mode", NO)
 		),
 
+		CTD_SECTION(@"Nested", nil, 
+			CTD_ROOT(@"Nested",
+				CTD_SECTION(nil, nil,
+					CTD_BOOL(@"One more bool", YES),
+					CTD_ROOT(@"Deeper Nested",
+						CTD_SECTION(nil, nil,
+							CTD_BOOL(@"Yet more bool", YES)
+						)
+					)
+				)
+			)
+		),
+
 		CTD_SECTION(@"Screen Link", nil, 
 			CTD_SCREENLINK_CLASS_NONIB(@"No NIB", UIViewController),
 			CTD_SCREENLINK_CLASS(@"With NIB", WebBrowser)
